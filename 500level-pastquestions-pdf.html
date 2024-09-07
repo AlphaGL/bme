@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BME - Past Questions</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+
+    <!-- Favicon -->
+    <link href="img/Logo.jpg" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Add custom styling for text and button separation */
+        .pdf-section {
+            position: relative;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .pdf-section img {
+            width: 120px;
+            height: 90px;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .pdf-section h5 {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .pdf-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .pdf-buttons a {
+            width: 48%; /* Ensures buttons are side by side with equal width */
+        }
+
+        /* Search bar styling */
+        #searchInput {
+            margin-bottom: 30px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><img style="width: 15%;" src="img/Logo.jpg" alt=""> BME FUTO</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="https://futo.edu.ng/department-of-biomedical-technology/" class="nav-item nav-link">Courses</a>
+                <a href="/courses.html" class="nav-item nav-link">Past Questions</a>
+            </div>
+            <a href="contact.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Contact<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h4 class="display-5 text-white animated slideInDown">500 LEVEL - PAST QUESTIONS</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Search Bar Start -->
+    <div class="container">
+        <input type="text" id="searchInput" placeholder="Search for courses..." onkeyup="searchCourses()">
+    </div>
+    <!-- Search Bar End -->
+
+    <!-- 1st Semester Start -->
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">1st Semester</h6>
+            </div>
+            <div class="row g-3" id="courseList">
+                <!-- Example for one PDF block -->
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="Course 1">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
+                        <h5 class="text-center">Course 1</h5>
+                        <div class="pdf-buttons">
+                            <a href="path-to-your-pdf/Course1.pdf" class="btn btn-primary" target="_blank">View PDF</a>
+                            <a href="path-to-your-pdf/Course1.pdf" class="btn btn-secondary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repeat similar blocks for other courses -->
+            </div>
+        </div>
+    </div>
+    <!-- 1st Semester End -->
+
+    <!-- 2nd Semester Start -->
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">2nd Semester</h6>
+            </div>
+            <div class="row g-3" id="courseList2">
+                <!-- Example for one PDF block -->
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="MTH 102 manual solution">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
+                        <h5 class="text-center">MTH 102 manual solution</h5>
+                        <div class="pdf-buttons">
+                            <a href="/documents/100level/2nd-semester/MTH 102 manual solution.pdf" class="btn btn-primary" target="_blank">View PDF</a>
+                            <a href="/documents/100level/2nd-semester/MTH 102 manual solution.pdf" class="btn btn-secondary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="BIO 102 REVISION TEST QUESTIONS">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
+                        <h5 class="text-center">BIO 102 REVISION TEST QUESTIONS</h5>
+                        <div class="pdf-buttons">
+                            <a href="/documents/100level/2nd-semester/BIO 102 REVISION TEST QUESTIONS.pdf" class="btn btn-primary" target="_blank">View PDF</a>
+                            <a href="/documents/100level/2nd-semester/BIO 102 REVISION TEST QUESTIONS.pdf" class="btn btn-secondary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="CHM 102 PAST TEST QUESTIONS">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
+                        <h5 class="text-center">CHM 102 PAST TEST QUESTIONS</h5>
+                        <div class="pdf-buttons">
+                            <a href="/documents/100level/2nd-semester/CHM 102 PAST TEST QUESTIONS.pdf" class="btn btn-primary" target="_blank">View PDF</a>
+                            <a href="/documents/100level/2nd-semester/CHM 102 PAST TEST QUESTIONS.pdf" class="btn btn-secondary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="CHM 102 test PQ">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
+                        <h5 class="text-center">CHM 102 test PQ</h5>
+                        <div class="pdf-buttons">
+                            <a href="/documents/100level/2nd-semester/CHM 102 test PQ.pdf" class="btn btn-primary" target="_blank">View PDF</a>
+                            <a href="/documents/100level/2nd-semester/CHM 102 test PQ.pdf" class="btn btn-secondary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="CHM 102 PQ">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
+                        <h5 class="text-center">CHM 102 PQ</h5>
+                        <div class="pdf-buttons">
+                            <a href="/documents/100level/2nd-semester/CHM 102 PQ.pdf" class="btn btn-primary" target="_blank">View PDF</a>
+                            <a href="/documents/100level/2nd-semester/CHM 102 PQ.pdf" class="btn btn-secondary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="Eng 102 Manual PDF">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
+                        <h5 class="text-center">Eng 102 Manual PDF</h5>
+                        <div class="pdf-buttons">
+                            <a href="/documents/100level/2nd-semester/Eng 102 Manual PDF.pdf" class="btn btn-primary" target="_blank">View PDF</a>
+                            <a href="/documents/100level/2nd-semester/Eng 102 Manual PDF.pdf" class="btn btn-secondary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repeat similar blocks for other courses -->
+            </div>
+        </div>
+    </div>
+    <!-- 2nd Semester End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Quick Link</h4>
+                    <a class="btn btn-link" href="index.html">Home</a>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="courses.html">Past Questions</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Location</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Federal University of Technology Owerri</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="index.html">BME FUTO</a>, All Right Reserved.
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="index.html">Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Search Functionality -->
+    <script>
+        function searchCourses() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const pdfSections = document.querySelectorAll('.pdf-section');
+
+            pdfSections.forEach(section => {
+                const courseName = section.getAttribute('data-course-name').toLowerCase();
+                if (courseName.includes(input)) {
+                    section.parentElement.style.display = 'block';
+                } else {
+                    section.parentElement.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
