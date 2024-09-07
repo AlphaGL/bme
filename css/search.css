@@ -1,0 +1,51 @@
+        /* Add custom styling for text and button separation */
+        .pdf-section {
+            position: relative;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .pdf-section img {
+            width: 120px;
+            height: 90px;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .pdf-section h5 {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .pdf-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .pdf-buttons a {
+            width: 48%;
+        }
+
+        /* Search bar styling */
+        #searchInput {
+            margin-bottom: 30px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Error message styling */
+        #errorMessage {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            display: none; /* Hidden by default */
+        }

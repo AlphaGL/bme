@@ -32,51 +32,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/search.css" rel="stylesheet">
 
-    <style>
-        /* Add custom styling for text and button separation */
-        .pdf-section {
-            position: relative;
-            background: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .pdf-section img {
-            width: 120px;
-            height: 90px;
-            border-radius: 8px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .pdf-section h5 {
-            margin-top: 15px;
-            font-size: 18px;
-        }
-
-        .pdf-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .pdf-buttons a {
-            width: 48%; /* Ensures buttons are side by side with equal width */
-        }
-
-        /* Search bar styling */
-        #searchInput {
-            margin-bottom: 30px;
-            padding: 10px;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-    </style>
 </head>
 
 <body>
@@ -115,58 +72,55 @@
     <!-- Search Bar Start -->
     <div class="container">
         <input type="text" id="searchInput" placeholder="Search for courses..." onkeyup="searchCourses()">
+        <p id="errorMessage">No courses found. Please try a different search.</p> <!-- Error message -->
     </div>
     <!-- Search Bar End -->
 
-    <!-- Google Drive Section Start -->
+    <!-- 1st Semester Start -->
     <div class="container-xxl py-5 category">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Google Drive PDFs</h6>
+                <h6 class="section-title bg-white text-center text-primary px-3">1st Semester courses <br> shows once searched </h6>
             </div>
-            <div class="row g-3" id="googleDriveList">
+            <div class="row g-3" id="courseList">
                 <!-- Example for one PDF block -->
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="Course from Drive">
+                <div class="col-lg-4 col-md-6 wow zoomIn pdf-container" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="something">
                         <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon">
-                        <h5 class="text-center">Course from Drive</h5>
+                        <h5 class="text-center">something</h5>
                         <div class="pdf-buttons">
-                            <a href="https://drive.google.com/file/d/your-google-drive-file-id/view" class="btn btn-primary" target="_blank">View PDF</a>
-                            <a href="https://drive.google.com/uc?id=your-google-drive-file-id&export=download" class="btn btn-secondary" download>Download PDF</a>
+                            <a href="something" class="btn btn-secondary" download>Download PDF</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Repeat similar blocks for other Google Drive PDFs -->
+                <!-- Repeat similar blocks for other courses -->
             </div>
         </div>
     </div>
-    <!-- Google Drive Section End -->
+    <!-- 1st Semester End -->
 
-    <!-- Telegram Section Start -->
+    <!-- 2nd Semester Start -->
     <div class="container-xxl py-5 category">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Telegram PDFs</h6>
+                <h6 class="section-title bg-white text-center text-primary px-3">2nd Semester courses <br> shows once searched</h6>
             </div>
-            <div class="row g-3" id="telegramList">
+            <div class="row g-3" id="courseList2">
                 <!-- Example for one PDF block -->
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="Course on Telegram">
+                <div class="col-lg-4 col-md-6 wow zoomIn pdf-container" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="something">
                         <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon">
-                        <h5 class="text-center">Course on Telegram</h5>
+                        <h5 class="text-center">something</h5>
                         <div class="pdf-buttons">
-                            <a href="https://t.me/your-telegram-channel" class="btn btn-primary" target="_blank">View on Telegram</a>
-                            <a href="https://t.me/your-telegram-channel" class="btn btn-secondary">Join Channel</a>
+                            <a href="something" class="btn btn-secondary" download>Download PDF</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Repeat similar blocks for other Telegram PDFs -->
+                <!-- Repeat similar blocks for other courses -->
             </div>
         </div>
     </div>
-    <!-- Telegram Section End -->
+    <!-- 2nd Semester End -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -215,23 +169,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
 
-    <!-- Search Functionality -->
-    <script>
-        function searchCourses() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const pdfSections = document.querySelectorAll('.pdf-section');
-
-            pdfSections.forEach(section => {
-                const courseName = section.getAttribute('data-course-name').toLowerCase();
-                if (courseName.includes(input)) {
-                    section.parentElement.style.display = 'block';
-                } else {
-                    section.parentElement.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>

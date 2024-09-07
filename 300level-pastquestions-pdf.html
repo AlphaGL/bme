@@ -32,51 +32,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/search.css" rel="stylesheet">
 
-    <style>
-        /* Add custom styling for text and button separation */
-        .pdf-section {
-            position: relative;
-            background: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .pdf-section img {
-            width: 120px;
-            height: 90px;
-            border-radius: 8px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .pdf-section h5 {
-            margin-top: 15px;
-            font-size: 18px;
-        }
-
-        .pdf-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .pdf-buttons a {
-            width: 48%; /* Ensures buttons are side by side with equal width */
-        }
-
-        /* Search bar styling */
-        #searchInput {
-            margin-bottom: 30px;
-            padding: 10px;
-            width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-    </style>
 </head>
 
 <body>
@@ -115,6 +72,7 @@
     <!-- Search Bar Start -->
     <div class="container">
         <input type="text" id="searchInput" placeholder="Search for courses..." onkeyup="searchCourses()">
+        <p id="errorMessage">No courses found. Please try a different search.</p> <!-- Error message -->
     </div>
     <!-- Search Bar End -->
 
@@ -122,21 +80,19 @@
     <div class="container-xxl py-5 category">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">1st Semester</h6>
+                <h6 class="section-title bg-white text-center text-primary px-3">1st Semester courses <br> shows once searched </h6>
             </div>
             <div class="row g-3" id="courseList">
                 <!-- Example for one PDF block -->
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="Course 1">
-                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
-                        <h5 class="text-center">Course 1</h5>
+                <div class="col-lg-4 col-md-6 wow zoomIn pdf-container" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="something">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon">
+                        <h5 class="text-center">something</h5>
                         <div class="pdf-buttons">
-                            <a href="path-to-your-pdf/Course1.pdf" class="btn btn-primary" target="_blank">View PDF</a>
-                            <a href="path-to-your-pdf/Course1.pdf" class="btn btn-secondary" download>Download PDF</a>
+                            <a href="something" class="btn btn-secondary" download>Download PDF</a>
                         </div>
                     </div>
                 </div>
-
                 <!-- Repeat similar blocks for other courses -->
             </div>
         </div>
@@ -147,71 +103,19 @@
     <div class="container-xxl py-5 category">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">2nd Semester</h6>
+                <h6 class="section-title bg-white text-center text-primary px-3">2nd Semester courses <br> shows once searched</h6>
             </div>
             <div class="row g-3" id="courseList2">
                 <!-- Example for one PDF block -->
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="MTH 102 manual solution">
-                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
-                        <h5 class="text-center">MTH 102 manual solution</h5>
+                <div class="col-lg-4 col-md-6 wow zoomIn pdf-container" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="something">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon">
+                        <h5 class="text-center">something</h5>
                         <div class="pdf-buttons">
-                            <a href="/documents/100level/2nd-semester/MTH 102 manual solution.pdf" class="btn btn-primary" target="_blank">View PDF</a>
-                            <a href="/documents/100level/2nd-semester/MTH 102 manual solution.pdf" class="btn btn-secondary" download>Download PDF</a>
+                            <a href="something" class="btn btn-secondary" download>Download PDF</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="BIO 102 REVISION TEST QUESTIONS">
-                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
-                        <h5 class="text-center">BIO 102 REVISION TEST QUESTIONS</h5>
-                        <div class="pdf-buttons">
-                            <a href="/documents/100level/2nd-semester/BIO 102 REVISION TEST QUESTIONS.pdf" class="btn btn-primary" target="_blank">View PDF</a>
-                            <a href="/documents/100level/2nd-semester/BIO 102 REVISION TEST QUESTIONS.pdf" class="btn btn-secondary" download>Download PDF</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="CHM 102 PAST TEST QUESTIONS">
-                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
-                        <h5 class="text-center">CHM 102 PAST TEST QUESTIONS</h5>
-                        <div class="pdf-buttons">
-                            <a href="/documents/100level/2nd-semester/CHM 102 PAST TEST QUESTIONS.pdf" class="btn btn-primary" target="_blank">View PDF</a>
-                            <a href="/documents/100level/2nd-semester/CHM 102 PAST TEST QUESTIONS.pdf" class="btn btn-secondary" download>Download PDF</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="CHM 102 test PQ">
-                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
-                        <h5 class="text-center">CHM 102 test PQ</h5>
-                        <div class="pdf-buttons">
-                            <a href="/documents/100level/2nd-semester/CHM 102 test PQ.pdf" class="btn btn-primary" target="_blank">View PDF</a>
-                            <a href="/documents/100level/2nd-semester/CHM 102 test PQ.pdf" class="btn btn-secondary" download>Download PDF</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="CHM 102 PQ">
-                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
-                        <h5 class="text-center">CHM 102 PQ</h5>
-                        <div class="pdf-buttons">
-                            <a href="/documents/100level/2nd-semester/CHM 102 PQ.pdf" class="btn btn-primary" target="_blank">View PDF</a>
-                            <a href="/documents/100level/2nd-semester/CHM 102 PQ.pdf" class="btn btn-secondary" download>Download PDF</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="pdf-section" data-course-name="Eng 102 Manual PDF">
-                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon"> <!-- You can replace with DOC icon if needed -->
-                        <h5 class="text-center">Eng 102 Manual PDF</h5>
-                        <div class="pdf-buttons">
-                            <a href="/documents/100level/2nd-semester/Eng 102 Manual PDF.pdf" class="btn btn-primary" target="_blank">View PDF</a>
-                            <a href="/documents/100level/2nd-semester/Eng 102 Manual PDF.pdf" class="btn btn-secondary" download>Download PDF</a>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Repeat similar blocks for other courses -->
             </div>
         </div>
@@ -265,23 +169,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
 
-    <!-- Search Functionality -->
-    <script>
-        function searchCourses() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const pdfSections = document.querySelectorAll('.pdf-section');
-
-            pdfSections.forEach(section => {
-                const courseName = section.getAttribute('data-course-name').toLowerCase();
-                if (courseName.includes(input)) {
-                    section.parentElement.style.display = 'block';
-                } else {
-                    section.parentElement.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>
