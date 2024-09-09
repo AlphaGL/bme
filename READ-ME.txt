@@ -1,11 +1,15 @@
-  =>  Template Name    : eLEARNING - eLearning HTML Template
 
-  =>  Template Link    : https://htmlcodex.com/elearning-html-template
+  Replace the word "something" in the code below with the name of each pdf
 
-  =>  Template License : https://htmlcodex.com/license (or read the LICENSE.txt file)
 
-  =>  Template Author  : HTML Codex
 
-  =>  Author Website   : https://htmlcodex.com
 
-  =>  About HTML Codex : HTML Codex is one of the top creators and publishers of Free HTML templates, HTML landing pages, HTML email templates and HTML snippets in the world. Read more at ( https://htmlcodex.com/about-us )
+<div class="col-lg-4 col-md-6 wow zoomIn pdf-container" data-wow-delay="0.1s">
+                    <div class="pdf-section" data-course-name="something">
+                        <img class="img-fluid" src="img/pdf-logo.jpeg" alt="PDF Icon">
+                        <h5 class="text-center">something</h5>
+                        <div class="pdf-buttons">
+                            <a href="https://www.mediafire.com/folder/qpzrdt0z2duz4/200level+1st-semester" class="btn btn-secondary" download>Download PDF</a>
+                        </div>
+                    </div>
+                </div>
