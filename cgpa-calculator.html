@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CGPA Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.18.3/package/dist/xlsx.full.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-left: 6px solid #0056b3;
+        }
+
+        h1 {
+            color: #0056b3;
+            font-weight: 700;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        button {
+            background: #0056b3;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #003d80;
+        }
+
+        .result {
+            font-size: 1.5rem;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .loader {
+            display: none;
+            margin: 20px auto;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ddd;
+            border-top: 5px solid #0056b3;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        canvas {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>📘 Advanced CGPA Calculator</h1>
+
+    <div class="container">
+        <h2>📚 Add Semester</h2>
+        <input type="text" id="semesterName" placeholder="Semester Name">
+        <button onclick="addSemester()">➕ Add Semester</button>
+        <select id="semesterList"></select>
+    </div>
+
+    <div class="container">
+        <h2>🎓 Add Courses</h2>
+        <input type="text" id="courseName" placeholder="Course Name">
+        <input type="number" id="credit" placeholder="Credit Unit">
+        <select id="grade">
+            <option value="5">A (5.0)</option>
+            <option value="4">B (4.0)</option>
+            <option value="3">C (3.0)</option>
+            <option value="2">D (2.0)</option>
+            <option value="1">E (1.0)</option>
+            <option value="0">F (0.0)</option>
+        </select>
+        <button onclick="addCourse()">➕ Add Course</button>
+        <ul id="courseList"></ul>
+    </div>
+
+    <div class="container">
+        <h2>📊 CGPA Calculation</h2>
+        <button onclick="startCalculation()">🔢 Calculate CGPA</button>
+        <div class="loader" id="loader"></div>
+        <h3 class="result" id="cgpaResult"></h3>
+    </div>
+
+    <div class="container">
+        <h2>📈 CGPA Visualization</h2>
+        <canvas id="cgpaPieChart"></canvas>
+        <!-- <button onclick="downloadReport()">📄 Download Report</button> -->
+    </div>
+
+    <script>
+        let semesters = {};
+        let selectedSemester = "";
+
+        function addSemester() {
+            let semesterName = document.getElementById("semesterName").value;
+            if (!semesterName) return alert("Enter semester name!");
+
+            semesters[semesterName] = [];
+            let semesterList = document.getElementById("semesterList");
+            let option = document.createElement("option");
+            option.value = semesterName;
+            option.textContent = semesterName;
+            semesterList.appendChild(option);
+            selectedSemester = semesterName;
+        }
+
+        function addCourse() {
+            if (!selectedSemester) return alert("Select a semester first!");
+
+            let name = document.getElementById("courseName").value;
+            let credit = parseFloat(document.getElementById("credit").value);
+            let grade = parseFloat(document.getElementById("grade").value);
+
+            if (!name || isNaN(credit) || credit <= 0) return alert("Enter valid details!");
+
+            semesters[selectedSemester].push({ name, credit, grade });
+
+            let courseItem = document.createElement("li");
+            courseItem.innerHTML = `<strong>${name}</strong>: ${credit} credits, Grade: ${document.getElementById("grade").selectedOptions[0].text}`;
+            document.getElementById("courseList").appendChild(courseItem);
+        }
+
+        function startCalculation() {
+            document.getElementById("loader").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                calculateCGPA();
+            }, 5000);
+        }
+
+        function calculateCGPA() {
+            if (!selectedSemester || semesters[selectedSemester].length === 0) return alert("No courses added yet!");
+
+            let totalCredits = semesters[selectedSemester].reduce((sum, c) => sum + c.credit, 0);
+            let totalPoints = semesters[selectedSemester].reduce((sum, c) => sum + (c.credit * c.grade), 0);
+            let cgpa = (totalPoints / totalCredits).toFixed(2);
+
+            document.getElementById("cgpaResult").innerText = "CGPA: " + cgpa;
+            document.getElementById("courseList").innerHTML = "";  // Clear the course list after calculation
+            updatePieChart(cgpa);
+        }
+
+        function updatePieChart(cgpa) {
+            let ctx = document.getElementById("cgpaPieChart").getContext("2d");
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ["Achieved CGPA", "Remaining to 5.0"],
+                    datasets: [{
+                        data: [cgpa, 5 - cgpa],
+                        backgroundColor: ["#0056b3", "#ddd"],
+                        hoverBackgroundColor: ["#003d80", "#bbb"]
+                    }]
+                }
+            });
+        }
+    </script>
+</body>
+</html>
